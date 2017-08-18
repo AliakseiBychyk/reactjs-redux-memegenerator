@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import '../styles/index.css'
 import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 import MemeItem from './MemeItem'
+import MyMemes from './MyMemes'
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
     return (
       <div>
         <h2><u>Welcome to the Meme Generator!</u></h2>
+        <MyMemes />
         <h4><i>Write Some Text</i></h4>
         <Form inline>
           <FormGroup>
