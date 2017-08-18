@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../styles/index.css'
-
+import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 import MemeItem from './MemeItem'
 
 
@@ -10,7 +10,9 @@ class App extends Component {
     super()
 
     this.state = {
-      memeLimit: 10
+      memeLimit: 10,
+      text0: '',
+      text1: ''
     } 
 
     this.showTenMore = this.showTenMore.bind(this)
@@ -25,7 +27,27 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h2>Welcome to the Meme Generator!</h2>
+        <h2><u>Welcome to the Meme Generator!</u></h2>
+        <h4><i>Write Some Text</i></h4>
+        <Form inline>
+          <FormGroup>
+            <ControlLabel>Top</ControlLabel>
+            {' '}
+            <FormControl
+              type="text"
+              onChange={event => this.setState({text0: event.target.value})}
+            ></FormControl>
+          </FormGroup>  
+          {' '}
+          <FormGroup>
+            <ControlLabel>Bottom</ControlLabel>
+            {' '}
+            <FormControl
+              type="text"
+              onChange={event => this.setState({text1: event.target.value})}
+            ></FormControl>
+          </FormGroup>
+        </Form>  
         {
           this.props.memes.map((meme, i) => {
             return (
