@@ -51,7 +51,12 @@ class App extends Component {
         {
           this.props.memes.map((meme, i) => {
             return (
-              <MemeItem key={i} meme={meme} /> 
+              <MemeItem
+                key={i}
+                meme={meme}
+                text0={this.state.text0}
+                text1={this.state.text1}
+              /> 
             )
           }).slice(0, this.state.memeLimit)
         }
