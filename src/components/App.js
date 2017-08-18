@@ -1,14 +1,42 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import '../styles/index.css'
 
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      memeLimit: 10
+    } 
+
+    this.showTenMore = this.showTenMore.bind(this)
+  }
+
+  showTenMore() {
+    this.setState(prevState => ({
+      memeLimit: prevState.memeLimit + 10
+    }))
+  }
+
   render() {
     return (
       <div>
-        <h2>Welcome to the Meme Generator!</h2>  
+        <h2>Welcome to the Meme Generator!</h2>
+        {
+          this.props.memes.map((meme, i) => {
+            return (
+              <h4 key={i}>{meme.name}</h4> 
+            )
+          }).slice(0, this.state.memeLimit)
+        }
+        <div className="meme-button" onClick={this.showTenMore}>Load 10 more memes...</div>
       </div>
     )
   }
 }
 
-export default App
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps, null)(App)
