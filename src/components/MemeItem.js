@@ -14,13 +14,13 @@ class MemeItem extends Component {
     this.postMeme = this.postMeme.bind(this)
   }
 
-  hideText() {
+  hideText = () => {
     this.setState(prevState => ({
       hovered: !prevState.hovered
     }))
   }
 
-  postMeme() {
+  postMeme = () => {
     console.log('this.props ', this.props)
     console.log(this.props.text0, ' ', this.props.text1)
     const { text0, text1 } = this.props

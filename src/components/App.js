@@ -19,7 +19,7 @@ class App extends Component {
     this.showTenMore = this.showTenMore.bind(this)
   }
 
-  showTenMore() {
+  showTenMore = () => {
     this.setState(prevState => ({
       memeLimit: prevState.memeLimit + 10
     }))
